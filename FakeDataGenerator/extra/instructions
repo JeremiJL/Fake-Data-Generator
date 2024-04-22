@@ -1,0 +1,20 @@
+Create an application that allows the generation of test personal data in a chosen
+quantity and additional information the user selects.
+The application should include a form where the user can specify:
+• the number of data entries to be generated
+• the language for the generated data (at least 10 languages)
+• additional fields to be generated besides the basic ones (possible options include ge-
+nerating addresses, university names, countries of origin, and any other 5 arbitrary
+fields).
+By default, the generated person’s information includes first name, last name, and date of
+birth.
+In the application, using the FakeDataService service, generate and return a set of objects of
+the Person class with the fields the user selects from the form. Use DTO.
+The generated data list should be presented to the user as a table below the form (each
+person represented in one row, with values of each field in separate columns).
+The table must have headers describing in the language selected in the form.
+Use the JavaFaker library (https://github.com/DiUS/java-faker) for data generation. Add
+the dependency to the library using the build.gradle file. Make sure you have familiarized
+yourself with the library documentation.
+In case of errors, inform the user with an appropriate message below the form.
+Prepare an aesthetically pleasing appearance for the server response.

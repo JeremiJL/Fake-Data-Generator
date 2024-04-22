@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Data Generator</title>
+
+    <style>
+
+        body {
+            font-family: Consolas,serif;
+            line-height: 50px;
+
+        }
+
+        .row {
+            /*margin-left: 100px;*/
+        }
+
+        .col {
+            float: left;
+            width: 33%;
+        }
+
+        .hl {
+            border-top: 3px solid black;
+            width: 100%;
+        }
+
+        .hl-light {
+            border-top: 1px solid black;
+            width: 100%;
+            opacity: 80%;
+        }
+
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        input {
+            width: 200px;
+        }
+
+        li, td, input, option {
+            font-size: small;
+            line-height: 20px;
+            font-weight: normal;
+        }
+
+        th, label {
+            font-size: medium;
+            line-height: 30px;
+        }
+
+        table, th, td {
+            border: 1px solid;
+        }
+
+        h2 {
+            font-size: x-large;
+            font-weight: bold;
+        }
+
+    </style>
+
+</head>
+<body>
+
+<!-- Title -->
+<div class="row"> <h1>Personal Data Generator</h1> </div>
+<div class="hl"></div>
+<form action="generator" method="post">
+
+    <div class="row">
+        <!-- Ask for number of entries  -->
+        <div class="col">
+        <label for="number_of_entries">Enter number of entries to be generated :</label>
+        <br>
+        <input type="number" id="number_of_entries" name="number_of_entries" min="1" max="100" value="1"/>
+        </div>
+
+        <!--  Ask for language  -->
+        <div class="col">
+        <label for="languages">Choose language :</label>
+        <br>
+        <select id="languages" name="languages">
+            <option th:each="language: ${languagesList}" th:text="${language}"></option>
+        </select>
+
+        </div>
+        <!-- Ask for additional fields -->
+        <div class="col">
+        <label for="additional_fields">Choose additional fields :</label>
+        <br>
+        <select id="additional_fields" name="additional_fields"  multiple>
+            <option th:each="field: ${additional_fields_list}" th:text="${field}"></option>
+        </select>
+        </div>
+    </div>
+    <div class="hl-light"></div>
+    <div class="row">
+        <input type="submit" value="Generate">
+    </div>
+    <div class="hl-light"></div>
+</form>
+
+<!-- Generation result -->
+<div class="row">
+
+    <h2>Generated output :</h2>
+    <table th:if="${persons}">
+        <tr>
+            <th th:each="atr: ${persons[0].getAssignedAttributes()}" th:text="${atr.substring(0,1).toUpperCase() + atr.substring(1)}"></th>
+        </tr>
+        <tr th:each="person: ${persons}">
+            <td th:each="value: ${person.toString().split(',')}" th:text="${value}"></td>
+        </tr>
+    </table>
+
+</div>
+
+
+</body>
+</html>

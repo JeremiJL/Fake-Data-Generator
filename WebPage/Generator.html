@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sample Data Generator</title>
+
+    <style>
+
+        body {
+            text-align: center;
+            font-family: Consolas,serif;
+            line-height: 50px;
+            align-content: center;
+        }
+
+        .col {
+            float: left;
+            width: 33%;
+        }
+
+        .hl {
+            border-top: 3px solid black;
+            width: 100%;
+        }
+
+        .hl-light {
+            border-top: 1px solid black;
+            width: 100%;
+            opacity: 80%;
+        }
+
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        input {
+            width: 200px;
+        }
+
+    </style>
+
+</head>
+<body>
+
+<h1>Personal Data Generator</h1>
+
+
+<form action="Generator.html">
+    <div class="hl"></div>
+    <div class="row">
+        <!-- Ask for number of entries  -->
+        <div class="col">
+        <label for="number_of_entries">Enter number of entries to be generated :</label>
+        <br>
+        <input type="number" id="number_of_entries" name="number_of_entries" min="1" max="100" />
+        </div>
+
+        <!--  Ask for language  -->
+        <div class="col">
+        <label for="languages">Choose language :</label>
+        <br>
+        <input list="languages" name="language">
+        <datalist id="languages">
+            <!-- thymeleaf -->
+        </datalist>
+
+        </div>
+        <!-- Ask for additional fields -->
+        <div class="col">
+        <label for="additional_fields">Choose additional fields :</label>
+        <br>
+        <select id="additional_fields" name="additional_fields" size="8" multiple>
+            <!-- thymeleaf -->
+            <option value="volvo">Volvo</option>
+            <option value="saab">Saab</option>
+            <option value="fiat">Fiat</option>
+            <option value="audi">Audi</option>
+        </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="hl-light"></div>
+        <input type="submit" value="Generate">
+        <div class="hl-light"></div>
+    </div>
+</form>
+
+<div class="row">
+
+    <h2>Generated output :</h2>
+    <ul>
+    <!--   Thymeleaf     <-->
+    </ul>
+
+</div>
+
+
+</body>
+</html>

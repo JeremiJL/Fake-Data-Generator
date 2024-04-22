@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Data Generator</title>
+
+  <style>
+
+    body {
+      font-family: Consolas,serif;
+      line-height: 50px;
+
+    }
+
+    .hl {
+      border-top: 3px solid black;
+      width: 100%;
+    }
+
+    .hl-light {
+      border-top: 1px solid black;
+      width: 100%;
+      opacity: 80%;
+    }
+
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    input {
+      width: 200px;
+    }
+
+    h2 {
+      font-size: x-large;
+      font-weight: bold;
+    }
+
+  </style>
+
+</head>
+<body>
+
+<!-- Title -->
+<div class="row"> <h1>Personal Data Generator</h1> </div>
+<div class="hl"></div>
+
+<!-- Error message -->
+<h2>Invalid input! </h2>
+<p> You are obliged to specify number of data for generation and language of presented data.</p>
+
+<!-- Button go back -->
+<div class="hl-light"></div>
+<form method="get" action="generator">
+  <input type="submit" value="Try again!">
+</form>
+
+</body>
+</html>
